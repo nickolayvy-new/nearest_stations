@@ -6,17 +6,17 @@
     <title>Ближайшие станции аренды — Компактные карточки</title>
     <style>
         :root {
-            --sixt-black: #000000;
-            --sixt-grey-dark: #191919;
-            --sixt-grey-muted: #737373;
-            --sixt-border: #E6E6E6;
+            --rm-black: #000000;
+            --rm-grey-dark: #191919;
+            --rm-grey-muted: #737373;
+            --rm-border: #E6E6E6;
             --rm-orange: #EF8144;
             --card-bg-hover: #FDFDFD; /* Ультра-мягкий серый для ховера */
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: var(--sixt-grey-dark);
+            color: var(--rm-grey-dark);
             background-color: #ffffff;
             margin: 0;
             padding: 60px 20px;
@@ -32,7 +32,7 @@
         .rm-stations-wrapper {
             width: 100%;
             max-width: 1280px;
-            border-top: 1px solid var(--sixt-border);
+            border-top: 1px solid var(--rm-border);
             padding-top: 40px;
         }
 
@@ -40,7 +40,7 @@
         .rm-stations-title {
             font-size: 22px;
             font-weight: 700;
-            color: var(--sixt-black);
+            color: var(--rm-black);
             margin: 0 0 24px 0;
             letter-spacing: -0.01em;
         }
@@ -67,7 +67,7 @@
             text-decoration: none;
             color: inherit;
             background-color: #ffffff;
-            border: 1px solid var(--sixt-border);
+            border: 1px solid var(--rm-border);
             border-left: 4px solid var(--rm-orange); /* Базовая толщина линии */
             padding: 16px 18px; /* Уменьшенные отступы для компактности */
             max-height: 130px; /* Ограничение максимальной высоты */
@@ -91,7 +91,7 @@
         .rm-station-name {
             font-size: 15px;
             font-weight: 700;
-            color: var(--sixt-black);
+            color: var(--rm-black);
             margin: 0 0 6px 0;
             line-height: 1.3;
             transition: color 0.2s ease;
@@ -105,7 +105,7 @@
         .rm-station-address {
             font-size: 12.5px;
             line-height: 1.4;
-            color: var(--sixt-grey-muted);
+            color: var(--rm-grey-muted);
             margin: 0;
             /* Обрезка текста в троеточие, если адрес вдруг окажется аномально длинным */
             display: -webkit-box;
