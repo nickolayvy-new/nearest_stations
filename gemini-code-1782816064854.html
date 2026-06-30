@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ближайшие станции аренды — Компактные карточки</title>
+    <style>
+        :root {
+            --sixt-black: #000000;
+            --sixt-grey-dark: #191919;
+            --sixt-grey-muted: #737373;
+            --sixt-border: #E6E6E6;
+            --rm-orange: #EF8144;
+            --card-bg-hover: #FDFDFD; /* Ультра-мягкий серый для ховера */
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--sixt-grey-dark);
+            background-color: #ffffff;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Главный контейнер */
+        .rm-stations-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            border-top: 1px solid var(--sixt-border);
+            padding-top: 40px;
+        }
+
+        /* Заголовок */
+        .rm-stations-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--sixt-black);
+            margin: 0 0 24px 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* Табличная сетка */
+        .rm-stations-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-spacing: 20px 0;
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+
+        .rm-station-cell {
+            display: table-cell;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        /* Карточка станции с уменьшенной высотой и новым ховером */
+        .rm-station-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background-color: #ffffff;
+            border: 1px solid var(--sixt-border);
+            border-left: 4px solid var(--rm-orange); /* Базовая толщина линии */
+            padding: 16px 18px; /* Уменьшенные отступы для компактности */
+            max-height: 130px; /* Ограничение максимальной высоты */
+            height: 130px;     /* Фиксируем высоту для идеального выравнивания */
+            overflow: hidden;  /* Защита от вылезания текста */
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная физическая анимация */
+        }
+
+        /* Новый органичный ховер-эффект */
+        .rm-station-card:hover {
+            background-color: var(--card-bg-hover);
+            border-left-width: 8px; /* Линия органично утолщается */
+            border-top-color: #DCDCDC;
+            border-right-color: #DCDCDC;
+            border-bottom-color: #DCDCDC;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04); /* Очень мягкая тень */
+            transform: scale(1.01); /* Легкое оптическое приближение к пользователю */
+        }
+
+        /* Название станции */
+        .rm-station-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--sixt-black);
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+            transition: color 0.2s ease;
+        }
+
+        .rm-station-card:hover .rm-station-name {
+            color: var(--rm-orange); /* Текст деликатно реагирует на наведение */
+        }
+
+        /* Адрес */
+        .rm-station-address {
+            font-size: 12.5px;
+            line-height: 1.4;
+            color: var(--sixt-grey-muted);
+            margin: 0;
+            /* Обрезка текста в троеточие, если адрес вдруг окажется аномально длинным */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 1023px) {
+            .rm-stations-grid {
+                display: block;
+                margin: 0;
+            }
+            .rm-station-cell {
+                display: block;
+                width: 100%;
+                margin-bottom: 12px;
+            }
+            .rm-station-card {
+                height: auto;
+                max-height: none;
+                padding: 16px;
+            }
+            .rm-station-card:hover {
+                transform: none; /* Убираем scale на тач-экранах */
+            }
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 767px) {
+            body {
+                padding: 40px 16px;
+            }
+            .rm-stations-title {
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="rm-stations-wrapper">
+    <h2 class="rm-stations-title">Ближайшие станции аренды</h2>
+    
+    <div class="rm-stations-grid">
+        
+        <div class="rm-station-cell">
+            <a href="#" class="rm-station-card">
+                <h3 class="rm-station-name">Москва, Внуково</h3>
+                <p class="rm-station-address">Аэропорт Внуково, терминал А, этаж 1, стойка 135</p>
+            </a>
+        </div>
+
+        <div class="rm-station-cell">
+            <a href="#" class="rm-station-card">
+                <h3 class="rm-station-name">Москва, Домодедово</h3>
+                <p class="rm-station-address">Аэропорт Домодедово, терминал Т1 (между 3 и 4 выходами)</p>
+            </a>
+        </div>
+
+        <div class="rm-station-cell">
+            <a href="#" class="rm-station-card">
+                <h3 class="rm-station-name">Москва, Бауманская</h3>
+                <p class="rm-station-address">г. Москва, ул. Фридриха-Энгельса, д. 3-5</p>
+            </a>
+        </div>
+
+        <div class="rm-station-cell">
+            <a href="#" class="rm-station-card">
+                <h3 class="rm-station-name">Москва, Ленинский пр-т</h3>
+                <p class="rm-station-address">г. Москва, Ленинский пр-т, 158</p>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
